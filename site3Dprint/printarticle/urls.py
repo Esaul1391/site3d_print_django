@@ -1,7 +1,11 @@
 from django.urls import path
 from . import views
 
+
+app_name = 'prinarticle'
+
 urlpatterns = [
-    path('', views.index, name='index'),
-    # Добавьте другие шаблоны URL здесь
+    path('', views.post_list, name='post_list'),
+    path('<int:id>/', views.post_detail, name='post_detail'),
+
 ]

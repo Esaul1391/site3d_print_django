@@ -1,4 +1,4 @@
-{% extends "printartickle/base.html" %}
+{% extends "printarticle/base.html" %}
 
 {% block title %}Blog 3D{% endblock %}
 
@@ -6,5 +6,13 @@
     <h1>Blog 3D</h1>
     {% for post in posts %}
         <h2>
-            <a href=""
+            <a href="{% url 'printarticle:post_detail' %}">
+                {{ post.title }}
+            </a>
         </h2>
+        <p class="date">
+            Published {{ post.publish }} by {{ post.autor }}
+        </p>
+        {{ post.body|truncatewords:30|linebreaks }}
+        {% endfor %}
+    {% endblock %}
